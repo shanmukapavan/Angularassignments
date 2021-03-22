@@ -1,0 +1,8 @@
+<p>test works!</p>
+<ul *ngFor="let number of Numbers">
+    <li *ngIf="number%2==0">{{number}}</li>
+</ul>
+<h5>{{details.name}}, {{details.age}}, {{details.phone}}</h5>
+<h5>{{details.age}}</h5>
+<h5>{{details.phone}}</h5>
+<button type="button" (click)="EventFunction()">Primary</button>

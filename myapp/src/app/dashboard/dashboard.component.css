@@ -1,0 +1,61 @@
+.main-dashbord-main{
+    height:100%;
+    width:100%;
+    
+    background-color: orange;
+    
+    
+    
+}
+.main-dashboard-grid{
+    display: grid;
+    justify-content: center;
+    padding:100px;
+    width:100%;
+    align-content:center;
+    grid-template-columns: repeat(3,minmax(100px,250px));
+    grid-template-rows: repeat(2,minmax(100px,110px));
+    grid-column-gap: 2 rem;
+    grid-row-gap: 2 rem;
+    
+}
+.main-card-title{
+    margin-top: 5%;
+    text-align: center;
+    width: 10px;
+}
+
+.mat-card{
+    background: rgb(145 54 244 / 20%);
+    padding: 30px;
+    box-shadow: 5px 8px 5px -3px rgb(0 0 0 / 20%), 5px 8px 1px -5px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+};
+
+
+table{
+    width: 100%;
+    
+    
+}
+.mat-cell{
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    
+
+}
+.mat-header-cell{
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    
+}
+.mat-table{
+    width: 100%;
+
+}
+th.mat-header-cell{
+    width:50%;
+}

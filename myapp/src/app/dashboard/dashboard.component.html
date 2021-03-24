@@ -1,0 +1,271 @@
+<div class="main-dashbord-main">
+  <div class="main-dashboard-grid">
+    <mat-card (click)="ShowChsrscters()">
+      <mat-card-title class="main-card-title">characters</mat-card-title>
+    </mat-card>
+
+    <mat-card (click)="comics()">
+      <mat-card-title class="main-card-title">comics</mat-card-title>
+    </mat-card>
+
+    <mat-card (click)="events()">
+      <mat-card-title class="main-card-title">events</mat-card-title>
+    </mat-card>
+
+    <mat-card (click)="stories()">
+      <mat-card-title class="main-card-title">stories</mat-card-title>
+    </mat-card>
+
+    <mat-card (click)="Series()">
+      <mat-card-title class="main-card-title">series</mat-card-title>
+    </mat-card>
+
+    <mat-card (click)= "Creaters()">
+      <mat-card-title class="main-card-title">creaters</mat-card-title>
+    </mat-card>
+  </div>
+</div>
+
+<div *ngIf="ShowComics">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let PeriodicElement">{{ PeriodicElement.id }}</td>
+    </ng-container>
+
+    <!-- title Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef>title</th>
+      <td mat-cell *matCellDef="let PeriodicElement">{{ PeriodicElement.title }}</td>
+    </ng-container>
+
+    <!-- digitalId Column -->
+    <ng-container matColumnDef="digitalId">
+      <th mat-header-cell *matHeaderCellDef>digitalId</th>
+      <td mat-cell *matCellDef="let PeriodicElement">{{ PeriodicElement.digitalId }}</td>
+    </ng-container>
+
+    <!-- issueNumber -->
+    <ng-container matColumnDef="issueNumber">
+      <th mat-header-cell *matHeaderCellDef>issueNumber</th>
+      <td mat-cell *matCellDef="let PeriodicElement">{{ PeriodicElement.issueNumber }}</td>
+    </ng-container>
+    <!-- variantDescription -->
+    <ng-container matColumnDef="variantDescription">
+      <th mat-header-cell *matHeaderCellDef>variantDescription</th>
+      <td mat-cell *matCellDef="let Element">
+        {{ Element.variantDescription }}
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+<div *ngIf="ShowCharacters">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!-- title Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>name</th>
+      <td mat-cell *matCellDef="let PeriodicElement">{{ PeriodicElement.name }}</td>
+    </ng-container>
+
+    <!-- digitalId Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>description</th>
+      <td mat-cell *matCellDef="let Element">{{  Element.description }}</td>
+    </ng-container>
+
+    <!-- issueNumber -->
+    <ng-container matColumnDef="modified">
+      <th mat-header-cell *matHeaderCellDef>modified</th>
+      <td mat-cell *matCellDef="let element">{{ element.modified }}</td>
+    </ng-container>
+    <!-- variantDescription -->
+    <ng-container matColumnDef="thumbnail">
+      <th mat-header-cell *matHeaderCellDef>thumbnail</th>
+      <td mat-cell *matCellDef="let element">{{ element.thumbnail }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedCharacterColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedCharacterColumns"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+<!-- <div> -->
+  <div *ngIf="ShowEvents">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>name</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <!-- digitalId Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <!-- issueNumber -->
+      <ng-container matColumnDef="resourceURL">
+        <th mat-header-cell *matHeaderCellDef>resourceURL</th>
+        <td mat-cell *matCellDef="let element">{{ element.resourceURL }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedEventColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedEventColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+<!-- </div> -->
+
+<!-- <div> -->
+  <div *ngIf="ShowStories">
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+      <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>title</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <!-- digitalId Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+
+      <!-- issueNumber -->
+      <ng-container matColumnDef="resourceURL">
+        <th mat-header-cell *matHeaderCellDef>resourceURL</th>
+        <td mat-cell *matCellDef="let element">{{ element.resourceURL }}</td>
+      </ng-container>
+      <!-- variantDescription -->
+
+      <tr mat-header-row *matHeaderRowDef="displayedStoriesColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedStoriesColumns"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+<!-- </div> -->
+<div *ngIf="ShowSeries">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+        <!--- Note that these columns can be defined in any order.
+              The actual rendered columns are set as a property on the row definition" -->
+      
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id</th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+      
+        <!-- title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef> title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+      
+        <!-- digitalId Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+      
+        <!-- issueNumber -->
+        <ng-container matColumnDef="resourceURI">
+          <th mat-header-cell *matHeaderCellDef> resourceURI</th>
+          <td mat-cell *matCellDef="let element"> {{element.resourceURI}} </td>
+        </ng-container>
+        <!-- variantDescription -->
+ <tr mat-header-row *matHeaderRowDef="displayedSeriesColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedSeriesColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      
+      
+</div>
+<div *ngIf="ShowCreaters">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- title Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> firstName </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+  
+    <!-- digitalId Column -->
+    <ng-container matColumnDef="middleName">
+      <th mat-header-cell *matHeaderCellDef> middleName </th>
+      <td mat-cell *matCellDef="let element"> {{element.middleName}} </td>
+    </ng-container>
+  
+    <!-- issueNumber -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> lastName </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+    <!-- variantDescription -->
+    <ng-container matColumnDef="suffix">
+        <th mat-header-cell *matHeaderCellDef> suffix </th>
+        <td mat-cell *matCellDef="let element"> {{element.suffix}} </td>
+      </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedCreatersColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedCreatersColumns;"></tr>
+  </table>
+  
+  
+</div>
+
+
+
+
+
+
+    
+
+
+
+
